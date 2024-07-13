@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "_Layout";
+
+}
+@model AriCoffeeShop.Models.Kategori
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="row">
+
+    <div class="col-md-6">
+
+        <form asp-action="Create" method="post">
+
+            <div class="form-group">
+
+                <label asp-for="Name" class="control-label"></label>
+               <input asp-for="Name" />
+                
+
+            </div>
+          
+
+                <button type="submit">Kaydet</button>
+           
+           
+
+
+
+        </form>
+
+
+    </div>
+
+</div>
