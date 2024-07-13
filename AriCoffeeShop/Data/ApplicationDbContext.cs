@@ -10,7 +10,6 @@ namespace AriCoffeeShop.Data
 
 
         public DbSet<Kahve> Kahve { get; set; }
-        public DbSet<Fiyat> Fiyat { get; set; }
         public DbSet<Fotograf> Fotograf { get; set; }
         public DbSet<Kategori> Kategori { get; set; }
 
