@@ -4,11 +4,16 @@
 }
 @model IEnumerable<AriCoffeeShop.Models.Kategori>
 
+<p>
+    <h2>Kategori Listesi</h2>
+</p>
+
 <p> 
 
     <a class="btn btn-primary" href="/Admin/Kategori/Create">Yeni Oluştur</a>
     
 </p>
+
 
 <table class="table">
 
@@ -28,7 +33,7 @@
             <tr>
                 <td>@x.Name</td>
                 <td>
-                    <a asp-action="Edit" class="btn btn-dark">Güncelle</a>
+                    <a asp-action="Edit" asp-route-id="@x.Id" class="btn btn-dark">Güncelle</a>
                 </td>
 
             </tr>

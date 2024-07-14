@@ -4,26 +4,26 @@
 }
 @model AriCoffeeShop.Models.Kategori
 
-<h3>Kategori Ekle</h3>
+<h3>Kategori Güncelle</h3>
 
 <div class="row">
 
     <div class="col-md-6">
 
-        <form asp-action="Create" method="post">
+        <form asp-action="Edit" method="post">
 
             <div class="form-group">
 
                 <label asp-for="Name" class="control-label"></label>
                 <input class="form-control" asp-for="Name" />
-                
+
 
             </div>
-          
 
-                <button class="btn btn-success" type="submit">Kaydet</button>
-           
-           
+
+            <button class="btn btn-success" type="submit">Kaydet</button>
+
+
 
 
 
