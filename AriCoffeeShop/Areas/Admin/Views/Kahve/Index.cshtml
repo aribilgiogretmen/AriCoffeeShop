@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "_Layout";
+
+}
+@model IEnumerable<AriCoffeeShop.Models.Kahve>
+
+
+<h2>Kahve Listesi</h2>
+
+<p><a asp-action="Create" class="btn btn-success">Yeni Kahve Ekle</a></p>
+
+
+@if(TempData["Success"]!=null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+
+}
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Kahve Adı</th>
+            <th>Kategori</th>
+            <th>Fiyat</th>
+            <th>Fotoğraflar</th>
+            <th>İşlem</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Kategori.Name</td>
+                <td>@item.Price</td>
+                <td>
+                    @foreach (var x in item.Fotograf)
+                    {
+                        <img src="@x.Url" width="50" height="50" />
+                        
+                    }
+
+
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Düzenle</a>
+
+                </td>
+
+            </tr>
+        }
+       
+
+
+    </tbody>
+
+
+
+</table>

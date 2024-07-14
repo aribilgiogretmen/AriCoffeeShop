@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "_Layout";
+
+}
+
+@model AriCoffeeShop.Models.Kahve
+
+<h2>Yeni Kahve Güncelle</h2>
+
+
+
+<div class="row">
+
+    <div class="col-md-10">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input type="text" asp-for="Name" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input type="text" asp-for="Description" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="KategoriId" class="control-label"></label>
+                <select asp-for="KategoriId" class="form-control" asp-items="ViewBag.KategoriId"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input type="text" asp-for="Price" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Fotoğraflar: </label>
+                <input type="file" name="file" multiple class="form-control" />
+            </div>
+
+            <div class="form-group">
+
+                <input type="submit" value="Kaydet" class="btn btn-success" />
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>

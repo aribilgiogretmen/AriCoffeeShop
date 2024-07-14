@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AriCoffeeShop.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class KahveController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -45,7 +46,7 @@ namespace AriCoffeeShop.Areas.Admin.Controllers
                     foreach (var item in file)
                     {
 
-                        var filename = Path.GetFileName(item.FileName);
+                        var filename = Path.GetFileName(item.FileName+Guid.NewGuid());
                         var filepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", filename);
 
                         using (var stream = new FileStream(filepath, FileMode.Create))
@@ -56,7 +57,7 @@ namespace AriCoffeeShop.Areas.Admin.Controllers
 
                         var fotograf = new Fotograf
                         {
-                            Url = "/images/" + filename,
+                            Url = "/images/" + filename + Guid.NewGuid(),
                             KahveId = kahve.Id
 
                         };
@@ -66,6 +67,7 @@ namespace AriCoffeeShop.Areas.Admin.Controllers
                     _context.SaveChanges();
                 }
 
+                TempData["Success"] = "Kahvemiz Başarıyla Eklendi";
                 return RedirectToAction("Index");
 
 
