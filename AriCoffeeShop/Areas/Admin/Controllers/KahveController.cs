@@ -1,4 +1,5 @@
 ﻿using AriCoffeeShop.Data;
+using AriCoffeeShop.Helper;
 using AriCoffeeShop.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -34,6 +35,16 @@ namespace AriCoffeeShop.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult Create(Kahve kahve,List<IFormFile> file)
         {
+            if(KahveHelper.KahveExistsByName(_context,kahve.Name))
+            {
+
+                ModelState.AddModelError("Name","Aynı İsminde Kahve Var");
+
+                return View(kahve);
+
+            }
+
+
 
             if (ModelState.IsValid)
             {
@@ -174,6 +185,8 @@ namespace AriCoffeeShop.Areas.Admin.Controllers
 
             return _context.Kahve.Any(e=>e.Id==id);
         }
+
+        
 
     }
 }
